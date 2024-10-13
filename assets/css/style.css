@@ -1135,12 +1135,17 @@ main {
 
 .mapbox {
   position: relative;
-  height: 250px;
-  width: 100%;
-  border-radius: 16px;
+  height: 380px; /* Adjust height as needed */
+  border-radius: 18px;
   margin-bottom: 30px;
   border: 1px solid var(--jet);
   overflow: hidden;
+}
+
+.mapbox #map {
+  height: 100%;
+  width: 100%;
+  border-radius: 18px;
 }
 
 .mapbox figure { height: 100%; }

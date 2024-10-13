@@ -126,6 +126,39 @@ for (let i = 0; i < formInputs.length; i++) {
 }
 
 
+// Initialize Google Map with zoom-in animation
+function initMap() {
+  const edmond = { lat: 35.6528, lng: -97.4774 };
+  const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 10, // Initial zoom level
+      center: edmond,
+      disableDefaultUI: true,
+      zoomControl: true,
+  });
+
+  const marker = new google.maps.Marker({
+      position: edmond,
+      map: map,
+      title: "Edmond, OK 73013",
+  });
+
+  // Animate the zoom-in effect
+  let zoomLevel = 10; // Start zoom level
+  const zoomIn = setInterval(() => {
+      if (zoomLevel < 15) { // Target zoom level
+          map.setZoom(zoomLevel++);
+      } else {
+          clearInterval(zoomIn); // Stop the animation
+      }
+  }, 500); // Adjust the speed of zooming in
+}
+
+// Load the Google Maps API
+const script = document.createElement('script');
+script.src = "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap";
+script.async = true;
+document.head.appendChild(script);
+
 
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
