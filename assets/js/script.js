@@ -104,6 +104,14 @@ for (let i = 0; i < filterBtn.length; i++) {
 
 }
 
+  // JavaScript to handle project card toggle
+  document.querySelectorAll('[data-project-toggle]').forEach(item => {
+    item.addEventListener('click', function() {
+      const projectDetails = this.closest('.project-item').querySelector('.project-details');
+      const isVisible = projectDetails.style.display === 'block';
+      projectDetails.style.display = isVisible ? 'none' : 'block';
+    });
+  });
 
 
 // contact form variables
